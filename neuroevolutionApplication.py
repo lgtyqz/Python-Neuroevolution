@@ -244,6 +244,7 @@ def loadStage():
                 goalY = count * 40 + 20
             elif line[i] == "S":
                 startY = i
+                nnTilesRow.append(0)
             else:
                 linRegTiles.append(0)
                 nnTilesRow.append(0)
@@ -379,8 +380,11 @@ def main():
     visibleTiles.append(p.yVel/5)
     #print(len(visibleTiles))
     if not playerInput:
+        #print(len(visibleTiles))
         result = population.organisms[currentNetwork][0].forwardPropagate(
-            copy.deepcopy(visibleTiles)).matrixData[0]
+            copy.deepcopy(visibleTiles))
+        #print(result)
+        result = result.matrixData[0]
     ##    print(visibleTiles)
     ##    print(result)
         actionNum = max(result)
